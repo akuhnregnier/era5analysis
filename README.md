@@ -1,5 +1,5 @@
 # era5analysis
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-blueviolet)](https://github.com/akuhnregnier/era5analysis/blob/master/LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 Download and analyse ERA5 data from the Climate Data Store.
