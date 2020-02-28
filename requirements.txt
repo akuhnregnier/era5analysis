@@ -1,0 +1,8 @@
+beautifulsoup4
+cdsapi
+iris
+joblib
+numpy
+python-dateutil
+pyyaml
+requests
