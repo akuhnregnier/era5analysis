@@ -24,11 +24,17 @@ repos:
             entry: clean_ipynb --no-py --no-autoflake --keep-output
             language: system
             files: \.ipynb$
+          - id: init-clean
+            name: init-clean
+            entry: clean_ipynb --no-autoflake
+            language: system
+            files: \__init__.py$
           - id: python-clean
             name: python-clean
             entry: clean_ipynb --no-ipynb
             language: system
             files: \.py$
+            exclude: \__init__.py$
           - id: pytest
             name: pytest
             entry: pytest -v -rs -m "not slow"
