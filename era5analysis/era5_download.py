@@ -29,6 +29,24 @@ from .data import DATA_DIR
 from .era5_tables import get_short_to_long
 from .logging_config import LOGGING, log_dir
 
+__all__ = [
+    "AveragingWorker",
+    "CAPEPrecipWorker",
+    "DailyAveragingWorker",
+    "DownloadThread",
+    "NullWorker",
+    "ThreadList",
+    "Worker",
+    "cape_precipitation",
+    "download_daily_precipitation",
+    "download_monthly_precipitation",
+    "format_request",
+    "format_variable",
+    "retrieval_processing",
+    "retrieve",
+    "str_to_seconds",
+]
+
 logger = logging.getLogger(__name__)
 variable_mapping = get_short_to_long()
 

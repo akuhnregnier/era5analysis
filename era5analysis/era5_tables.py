@@ -15,6 +15,9 @@ from joblib import Memory
 from .data import DATA_DIR, config_file, data_is_available
 from .logging_config import LOGGING
 
+__all__ = ["get_short_to_long", "get_table_dict", "load_era5_tables"]
+
+
 logger = logging.getLogger(__name__)
 
 # The URL has moved.
