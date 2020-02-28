@@ -30,3 +30,11 @@ LOG_DIR: ~/Documents/era5analysis_logs/
 ```
 
 The `target_dir` argument takes precedence over both of the approaches outlined above.
+
+## Usage
+
+For examples, please see the following functions in [era5analysis/era5_download.py](era5analysis/era5_download.py):
+ - monthly_averaging_example()
+ - cape_precipitation()
+ - download_monthly_precipitation()
+ - download_daily_precipitation()
