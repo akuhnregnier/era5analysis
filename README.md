@@ -9,8 +9,15 @@ Either the `name` or the `shortName` columns may be used.
 
 ## Installation
 
-Please use `conda` to install the `iris` package, as the version retrieved using `pip` is outdated.
-All other dependencies should be installed automatically upon running `pip install -e .` in the repository directory.
+You can either install the package as a Zip file, or (having unzipped or cloned it) in editable mode:
+```sh
+pip install era5analysis-master.zip
+pip install -e era5analysis
+```
+Replace the file/folder names as needed.
+
+Please use `conda` to install the `iris` package after having used `pip`, as the version retrieved using `pip` is outdated.
+All other dependencies should be installed automatically upon running `pip install`.
 
 The data directory and logging directory (should you apply the logging configuration given in the package) are set to the current working directory by default.
 Alternatively, the `era5_analysis_config.yaml` configuration file can be used to set default values for these parameters.
