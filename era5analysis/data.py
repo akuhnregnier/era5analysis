@@ -3,18 +3,16 @@ import os
 
 import yaml
 
-config_file = os.path.join(os.path.dirname(__file__), os.pardir, "config.yaml")
+config_file = os.path.join(os.path.expanduser("~"), "era5_analysis_config.yaml")
 
-DATA_DIR = None
-LOG_DIR = None
+DATA_DIR = os.getcwd()
+LOG_DIR = os.getcwd()
 
 if os.path.isfile(config_file):
     with open(config_file) as f:
         config = yaml.safe_load(f)
-        DATA_DIR = os.path.expanduser(config["DATA_DIR"])
-        LOG_DIR = os.path.expanduser(config["LOG_DIR"])
-else:
-    raise FileNotFoundError(f"Please populate the config file {config_file}.")
+        DATA_DIR = os.path.expanduser(config.get("DATA_DIR", DATA_DIR))
+        LOG_DIR = os.path.expanduser(config.get("LOG_DIR", LOG_DIR))
 
 
 def data_is_available():

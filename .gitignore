@@ -130,3 +130,6 @@ dmypy.json
 
 # Do not track the config file.
 config.yaml
+
+# Ignore joblib cache directories.
+joblib/
