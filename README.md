@@ -22,8 +22,8 @@ All other dependencies should be installed automatically upon running `pip insta
 You may also want to use pip's `--no-dependencies` switch followed by a manual installation of the dependencies (from `requirements.txt`) using conda.
 
 The data directory and logging directory (should you apply the logging configuration given in the package) are set to the current working directory by default.
-Alternatively, the `era5_analysis_config.yaml` configuration file can be used to set default values for these parameters.
-This should be placed in your home directory and needs to can contain the following two values, where the directories themselves may be changed, of course:
+Alternatively, the `~/era5_analysis_config.yaml` configuration file (in your __home directory__) can be used to set default values for these parameters.
+This can contain the following two values, where the directories themselves may be changed, of course:
 ```yaml
 DATA_DIR: ~/DATA/
 LOG_DIR: ~/Documents/era5analysis_logs/
