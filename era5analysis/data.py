@@ -3,6 +3,8 @@ import os
 
 import yaml
 
+__all__ = ("DATA_DIR", "data_is_available")
+
 config_file = os.path.join(os.path.expanduser("~"), "era5_analysis_config.yaml")
 
 DATA_DIR = os.getcwd()

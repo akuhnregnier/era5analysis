@@ -37,7 +37,8 @@ repos:
             exclude: \__init__.py$
           - id: pytest
             name: pytest
-            entry: pytest -v -rs -m "not slow"
+            # entry: pytest -v -rs -m "not slow" --ignore-glob='joblib/**/func_code.py'
+            entry: pytest
             pass_filenames: false
             language: system
             verbose: true

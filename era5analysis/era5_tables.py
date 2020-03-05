@@ -10,9 +10,10 @@ from functools import reduce
 
 import requests
 from bs4 import BeautifulSoup
+
 from joblib import Memory
 
-from .data import DATA_DIR, config_file, data_is_available
+from .data import DATA_DIR
 from .logging_config import LOGGING
 
 __all__ = ["get_short_to_long", "get_table_dict", "load_era5_tables"]
@@ -24,11 +25,7 @@ logger = logging.getLogger(__name__)
 # URL = "https://confluence.ecmwf.int/display/CKB/ERA5+data+documentation"
 URL = "https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+documentation"
 
-if data_is_available():
-    memory = Memory(location=DATA_DIR, verbose=0)
-else:
-    memory = Memory(location=None, verbose=0)
-    logger.warning(f"No data directory specified. Ensure {config_file} is present.")
+memory = Memory(location=DATA_DIR, verbose=0)
 
 
 @memory.cache

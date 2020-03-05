@@ -9,27 +9,44 @@ Either the `name` or the `shortName` columns may be used.
 
 ## Installation
 
-You can either install the package as a Zip file, or (having unzipped or cloned it) in editable mode:
+First, download the repository via cloning or by downloading and then extracting the zip file.
+It is assumed that the unpacked (or cloned) contents are in the `./era5analysis` directory from here on.
+
+### Installing the Dependencies
+
+Using `conda` with an existing, activated environment:
+
 ```sh
-pip install era5analysis-master.zip
-pip install -e era5analysis
+conda install `xargs < ./era5analysis/requirements.txt` -c conda-forge -y
 ```
-Replace the file/folder names as needed.
 
-Please use `conda` to install the `iris` package after having used `pip`, as the version retrieved using `pip` is outdated.
-All other dependencies should be installed automatically upon running `pip install`.
+Creating a new environment:
+```sh
+conda create --file ./era5analysis/requirements.txt --name era5analysis -c conda-forge -y
+```
+This will create a new environment called 'era5analysis' that will contain the required packages.
 
-You may also want to use pip's `--no-dependencies` switch followed by a manual installation of the dependencies (from `requirements.txt`) using conda.
+### Installing the `era5analysis` Package
 
-The data directory and logging directory (should you apply the logging configuration given in the package) are set to the current working directory by default.
-Alternatively, the `~/era5_analysis_config.yaml` configuration file (in your __home directory__) can be used to set default values for these parameters.
+You can install the package in editable mode like so:
+```sh
+pip install -e era5analysis --no-dependencies
+```
+Here, `--no-dependencies` is used since we have already installed the dependencies using `conda`.
+
+### Specifying Default Directories
+
+The data directory (`DATA_DIR`) and logging directory (should you apply the logging configuration given in the package) are both set to the current working directory by default.
+
+The `~/era5_analysis_config.yaml` configuration file (in your __home directory__) can be used to set default values for these parameters.
 This can contain the following two values, where the directories themselves may be changed, of course:
+
 ```yaml
 DATA_DIR: ~/DATA/
 LOG_DIR: ~/Documents/era5analysis_logs/
 ```
 
-The `target_dir` argument takes precedence over both of the approaches outlined above.
+The `target_dir` argument of the `retrieve()` function takes precedence over default values for `DATA_DIR`.
 
 ## Usage
 
