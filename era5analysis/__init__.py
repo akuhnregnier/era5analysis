@@ -3,4 +3,4 @@ from .data import *
 from .era5_download import *
 from .era5_tables import *
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"
