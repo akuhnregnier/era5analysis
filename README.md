@@ -30,7 +30,7 @@ This will create a new environment called 'era5analysis' that will contain the r
 
 You can install the package in editable mode like so:
 ```sh
-pip install -e era5analysis --no-dependencies
+pip install -e ./era5analysis --no-dependencies
 ```
 Here, `--no-dependencies` is used since we have already installed the dependencies using `conda`.
 
