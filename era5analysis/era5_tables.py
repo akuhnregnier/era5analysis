@@ -3,8 +3,6 @@
 """Determining the available datasets by parsing the documentation website.
 
 """
-import logging
-import logging.config
 import re
 from functools import reduce
 
@@ -14,12 +12,10 @@ from bs4 import BeautifulSoup
 from joblib import Memory
 
 from .data import DATA_DIR
-from .logging_config import LOGGING
+from .logging_config import logger
 
 __all__ = ["get_short_to_long", "get_table_dict", "load_era5_tables"]
 
-
-logger = logging.getLogger(__name__)
 
 # The URL has moved.
 # URL = "https://confluence.ecmwf.int/display/CKB/ERA5+data+documentation"
@@ -190,7 +186,9 @@ def load_era5_tables(url=URL):
             data["rows"][0]
         ), "The number of data columns must match the header."
 
-    return tables, tuple(common_table_header)
+    # The final returned table header needs to be ordered the same way as the table,
+    # which is most likely not the case when using sets.
+    return tables, tuple(name for name in headers[0] if name in common_table_header)
 
 
 def get_short_to_long(url=URL):

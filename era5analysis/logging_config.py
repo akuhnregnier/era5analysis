@@ -1,139 +1,63 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import logging.config
 import os
-from copy import deepcopy
+import sys
+from datetime import timedelta
 
-from .data import LOG_DIR as log_dir
+from loguru import logger
 
-if not os.path.isdir(log_dir):
-    os.makedirs(log_dir)
+from .data import DEBUG, LOG_DIR
 
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "formatters": {
-        "default": {
-            "format": (
-                "%(asctime)s:%(levelname)-8s:%(name)-20s:%(filename)-25s:%(lineno)-5s"
-                ":%(funcName)-30s:%(message)s"
-            )
-        }
-    },
-    "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-            "level": "INFO",
-            "formatter": "default",
-        },
-        "debug_file": {
-            "class": "logging.handlers.TimedRotatingFileHandler",
-            "when": "D",
-            "interval": 7,
-            "level": "DEBUG",
-            "formatter": "default",
-            "filename": os.path.join(log_dir, "wildfires_debug.log"),
-        },
-        "info_file": {
-            "class": "logging.handlers.TimedRotatingFileHandler",
-            "when": "D",
-            "interval": 7,
-            "level": "INFO",
-            "formatter": "default",
-            "filename": os.path.join(log_dir, "wildfires_info.log"),
-        },
-        "warning_file": {
-            "class": "logging.handlers.TimedRotatingFileHandler",
-            "when": "D",
-            "interval": 7,
-            "level": "WARNING",
-            "formatter": "default",
-            "filename": os.path.join(log_dir, "wildfires_warning.log"),
-        },
-        "root_debug_file": {
-            "class": "logging.handlers.TimedRotatingFileHandler",
-            "when": "D",
-            "interval": 7,
-            "level": "DEBUG",
-            "formatter": "default",
-            "filename": os.path.join(log_dir, "root_debug.log"),
-        },
-        "root_info_file": {
-            "class": "logging.handlers.TimedRotatingFileHandler",
-            "when": "D",
-            "interval": 7,
-            "level": "INFO",
-            "formatter": "default",
-            "filename": os.path.join(log_dir, "root_info.log"),
-        },
-        "root_warning_file": {
-            "class": "logging.handlers.TimedRotatingFileHandler",
-            "when": "D",
-            "interval": 7,
-            "level": "WARNING",
-            "formatter": "default",
-            "filename": os.path.join(log_dir, "root_warning.log"),
-        },
-    },
-    "loggers": {
-        "wildfires": {
-            "level": "DEBUG",
-            "handlers": ["console", "debug_file", "info_file", "warning_file"],
-        },
-        "": {
-            "level": "DEBUG",
-            "handlers": ["root_debug_file", "root_info_file", "root_warning_file"],
-        },
-    },
+__all__ = ("logger",)
+
+
+os.makedirs(LOG_DIR, exist_ok=True)
+
+common_handler_config = {
+    "format": (
+        "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level> "
+        "| <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> "
+        "- <level>{extra[job_id]}{message}</level>"
+    ),
+    "enqueue": True,
 }
 
-LOGGING["loggers"]["__main__"] = LOGGING["loggers"]["wildfires"]
-# A copy of the usual configuration with a higher threshold for console output.
-JUPYTER_LOGGING = deepcopy(LOGGING)
-JUPYTER_LOGGING["handlers"]["console"]["level"] = "WARNING"
+default_filesink = {
+    "rotation": timedelta(days=7),
+    **common_handler_config,
+}
+
+file_handlers = []
+for level in ("DEBUG", "INFO", "WARNING"):
+    file_handlers.append(default_filesink.copy())
+    file_handlers[-1]["level"] = level
+    file_handlers[-1]["sink"] = os.path.join(
+        LOG_DIR, f"era5analysis_{level.lower()}.log"
+    )
+
+config = {
+    "handlers": [
+        {
+            "sink": sys.stderr,
+            "level": "DEBUG" if DEBUG else "INFO",
+            **common_handler_config,
+        },
+        *file_handlers,
+    ],
+    "extra": {"job_id": None},
+    "patcher": lambda record: record["extra"].update(
+        job_id=f"{record['extra']['job_id']:0>3d}:"
+        if record["extra"]["job_id"] is not None
+        else ""
+    ),
+}
 
 
-def enable_logging(mode="normal", level=None):
-    """Configure logging in a standardised manner.
-
-    Args:
-        mode (str): Which configuration to use. Possible values are "normal" or
-            "jupyter".
-        level (logging level): If given, alter the console logger level.
-
-    """
-    if mode == "normal":
-        if level is not None:
-            LOGGING["handlers"]["console"]["level"] = level
-        logging.config.dictConfig(LOGGING)
-    elif mode == "jupyter":
-        if level is not None:
-            JUPYTER_LOGGING["handlers"]["console"]["level"] = level
-        logging.config.dictConfig(JUPYTER_LOGGING)
-    else:
-        raise ValueError(f"Unknown mode '{mode}'.")
+logger.configure(**config)
+logger.disable("era5analysis")
 
 
 if __name__ == "__main__":
-    import logging
-    from logging_tree import printout
-    import cdsapi
-
-    c = cdsapi.Client()
-    logging.config.dictConfig(LOGGING)
-    logger0 = logging.getLogger("")
-    logger1 = logging.getLogger(__name__)
-    logger2 = logging.getLogger("testing")
-    printout()
-
-    for level, level_str in (
-        (logging.DEBUG, "DEBUG"),
-        (logging.INFO, "INFO"),
-        (logging.WARNING, "WARNING"),
-    ):
-        for logger, logger_name in (
-            (logger0, "root logger"),
-            (logger1, "{} logger".format(__name__)),
-            (logger2, "testing logger"),
-        ):
-            logger.log(level, "{} {}".format(level_str, logger_name + " test"))
+    logger.debug("Debug test.")
+    logger.info("Info test.")
+    logger.warning("Warning test.")
