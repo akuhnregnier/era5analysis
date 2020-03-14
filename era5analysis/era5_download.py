@@ -828,6 +828,8 @@ def retrieval_processing(
                 if new_thread is None:
                     logger.debug("No new download requested.")
                     continue
+                # These threads will die when the main program exits.
+                new_thread.daemon = True
                 new_threads.append(new_thread)
                 threads.append(new_thread)
 
