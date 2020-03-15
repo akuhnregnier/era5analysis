@@ -650,9 +650,18 @@ class MonthlyMeanMinMaxWorker(Worker):
             ) <= cube.coord("time").cell(0).point, (
                 "Only single months should be processed at a time.",
             )
-            mean_cube = cube.collapsed("time", iris.analysis.MEAN)
-            min_cube = cube.collapsed("time", iris.analysis.MIN)
-            max_cube = cube.collapsed("time", iris.analysis.MAX)
+
+            with warnings.catch_warnings():
+                warnings.filterwarnings(
+                    "ignore",
+                    message=(
+                        "Collapsing a non-contiguous coordinate. Metadata may not "
+                        "be fully descriptive for 'time'."
+                    ),
+                )
+                mean_cube = cube.collapsed("time", iris.analysis.MEAN)
+                min_cube = cube.collapsed("time", iris.analysis.MIN)
+                max_cube = cube.collapsed("time", iris.analysis.MAX)
 
             mean_cube.long_name, min_cube.long_name, max_cube.long_name = cls.long_name(
                 cube.long_name
