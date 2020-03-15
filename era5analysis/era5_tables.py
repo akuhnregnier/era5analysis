@@ -8,7 +8,6 @@ from functools import reduce
 
 import requests
 from bs4 import BeautifulSoup
-
 from joblib import Memory
 
 from .data import DATA_DIR
@@ -213,6 +212,11 @@ def get_short_to_long(url=URL):
         for row in data["rows"]:
             short_to_long[row[short_name_col]] = row[long_name_col]
     return short_to_long
+
+
+def get_long_to_short(url=URL):
+    short_to_long = get_short_to_long(url)
+    return dict((value, key) for (key, value) in short_to_long.items())
 
 
 def get_table_dict(url=URL):

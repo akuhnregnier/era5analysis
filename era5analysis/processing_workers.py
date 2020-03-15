@@ -25,10 +25,11 @@ __all__ = (
     "DailyAveragingWorker",
     "NullWorker",
     "MonthlyMeanDailyMaxWorker",
+    "MonthlyMeanMinMaxWorker",
 )
 
 
-variable_mapping = get_short_to_long()
+short_to_long = get_short_to_long()
 
 
 def get_datetime_range(request_dict):
@@ -134,19 +135,40 @@ class Worker(Process, ABC):
         datetime_range = get_datetime_range(request_dict)
 
         if any(hasattr(cls, custom_name) for custom_name in ("var_name", "long_name")):
-            expected_name_sets = [
-                {
-                    getattr(cls, custom_name, None)
-                    for custom_name in ("var_name", "long_name")
-                }
-            ]
-            logger.info(
-                "Overriding requested names with "
-                f"{' and '.join(expected_name_sets[0])}."
+            assert all(
+                hasattr(cls, custom_name) for custom_name in ("var_name", "long_name")
             )
+            if callable(cls.var_name):
+                # Here, the name functions take the input variable names as their
+                # argument, and return the names of the new cubes. The number of
+                # output cubes (variables) is not pre-determined.
+                assert callable(cls.long_name)
+                # Short -> var_name, long -> long_name.
+                expected_name_sets = []
+                for variable in request_dict["variable"]:
+                    var_names = cls.var_name(variable)
+                    long_names = cls.long_name(short_to_long[variable])
+                    for var_name, long_name in zip(var_names, long_names):
+                        expected_name_sets.append({var_name, long_name})
+                logger.info(
+                    "Overriding requested names with "
+                    f"{' and '.join([str(s) for s in expected_name_sets])}."
+                )
+            else:
+                # In this case, the output will be one cube (with one set of names).
+                expected_name_sets = [
+                    {
+                        getattr(cls, custom_name, None)
+                        for custom_name in ("var_name", "long_name")
+                    }
+                ]
+                logger.info(
+                    "Overriding requested names with "
+                    f"{' and '.join(expected_name_sets[0])}."
+                )
         else:
             expected_name_sets = [
-                {variable, variable_mapping[variable]}
+                {variable, short_to_long[variable]}
                 for variable in request_dict["variable"]
             ]
 
@@ -577,4 +599,67 @@ class MonthlyMeanDailyMaxWorker(Worker):
                 attributes=cube.attributes,
             )
             new_cubes.append(new_cube)
+        return new_cubes
+
+
+class MonthlyMeanMinMaxWorker(Worker):
+    """Compute the means, minima, and maxima for each month.
+
+    Filenames to process are passed in via a pipe.
+
+    """
+
+    @staticmethod
+    def var_name(name):
+        """Get the new var names from the old name."""
+        prefixes = ("mean_", "min_", "max_")
+        if name is not None:
+            return [prefix + name for prefix in prefixes]
+        else:
+            return [None] * len(prefixes)
+
+    @staticmethod
+    def long_name(name):
+        """Get the new long names from the old name."""
+        prefixes = ("Mean ", "Min ", "Max ")
+        if name is not None:
+            return [prefix + name for prefix in prefixes]
+        else:
+            return [None] * len(prefixes)
+
+    @staticmethod
+    def output_filename(input_filename):
+        """Construct the output filename from the input filename."""
+        return input_filename.split(".nc")[0] + "_monthly_mean_min_max.nc"
+
+    @classmethod
+    def process_cubes(cls, cubes):
+        """Compute the monthly mean of daily maxima of the input cubes.
+
+        Args:
+            cubes (iris.cube.CubeList): List of cubes to process.
+
+        Returns:
+            iris.cube.CubeList: Processed cubes.
+
+        """
+        new_cubes = iris.cube.CubeList([])
+        for cube in cubes:
+            assert (
+                cube.coord("time").cell(-1).point - relativedelta(months=1)
+            ) <= cube.coord("time").cell(0).point, (
+                "Only single months should be processed at a time.",
+            )
+            mean_cube = cube.collapsed("time", iris.analysis.MEAN)
+            min_cube = cube.collapsed("time", iris.analysis.MIN)
+            max_cube = cube.collapsed("time", iris.analysis.MAX)
+
+            mean_cube.long_name, min_cube.long_name, max_cube.long_name = cls.long_name(
+                cube.long_name
+            )
+            mean_cube.var_name, min_cube.var_name, max_cube.var_name = cls.var_name(
+                cube.var_name
+            )
+
+            new_cubes.extend([mean_cube, min_cube, max_cube])
         return new_cubes

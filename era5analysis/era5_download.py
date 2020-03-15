@@ -20,6 +20,7 @@ from dateutil.relativedelta import relativedelta
 from iris.time import PartialDateTime
 
 from .data import DATA_DIR, LOG_DIR
+from .era5_tables import get_long_to_short
 from .logging_config import logger
 from .processing_workers import *
 
@@ -44,6 +45,8 @@ PRESSURE_LEVEL_MEAN_DATASET = "reanalysis-era5-pressure-levels-monthly-means"
 SINGLE_LEVEL_NAMES = (SINGLE_LEVEL_DATASET, SINGLE_LEVEL_MEAN_DATASET)
 PRESSURE_LEVEL_NAMES = (PRESSURE_LEVEL_DATASET, PRESSURE_LEVEL_MEAN_DATASET)
 MEAN_DATASET_NAMES = (SINGLE_LEVEL_MEAN_DATASET, PRESSURE_LEVEL_MEAN_DATASET)
+
+long_to_short = get_long_to_short()
 
 
 def is_single_level_dataset(dataset_name):
@@ -265,6 +268,9 @@ def retrieve(
 
     if isinstance(variable, str):
         variable = [variable]
+
+    # Convert variables to the short format.
+    variable = [long_to_short.get(var, var) for var in variable]
 
     if not os.path.isdir(target_dir):
         os.makedirs(target_dir)
