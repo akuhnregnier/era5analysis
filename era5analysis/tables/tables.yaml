@@ -1,0 +1,2566 @@
+Table 1:
+  caption: 'Table 1: stream=oper/enda/mnth/moda/edmm/edmo, levtype=sfc: surface and
+    single level parameters: invariants'
+  header_row:
+  - count
+  - name
+  - units
+  - shortName
+  - paramId
+  - an
+  - fc
+  rows:
+  - - 1
+    - Lake cover
+    - (0 - 1)
+    - cl
+    - '26'
+    - x
+    - x
+  - - 2
+    - Lake depth
+    - m
+    - dl
+    - '228007'
+    - x
+    - x
+  - - 3
+    - Low vegetation cover
+    - (0 - 1)
+    - cvl
+    - '27'
+    - x
+    - ''
+  - - 4
+    - High vegetation cover
+    - (0 - 1)
+    - cvh
+    - '28'
+    - x
+    - ''
+  - - 5
+    - Type of low vegetation
+    - '~'
+    - tvl
+    - '29'
+    - x
+    - ''
+  - - 6
+    - Type of high vegetation
+    - '~'
+    - tvh
+    - '30'
+    - x
+    - ''
+  - - 7
+    - Soil type*
+    - '~'
+    - slt
+    - '43'
+    - x
+    - ''
+  - - 8
+    - Standard deviation of filtered subgrid orography
+    - m
+    - sdfor
+    - '74'
+    - x
+    - ''
+  - - 9
+    - Geopotential
+    - m**2 s**-2
+    - z
+    - '129'
+    - x
+    - x
+  - - 10
+    - Standard deviation of orography
+    - '~'
+    - sdor
+    - '160'
+    - x
+    - ''
+  - - 11
+    - Anisotropy of sub-gridscale orography
+    - '~'
+    - isor
+    - '161'
+    - x
+    - ''
+  - - 12
+    - Angle of sub-gridscale orography
+    - radians
+    - anor
+    - '162'
+    - x
+    - ''
+  - - 13
+    - Slope of sub-gridscale orography
+    - '~'
+    - slor
+    - '163'
+    - x
+    - ''
+  - - 14
+    - Land-sea mask
+    - (0 - 1)
+    - lsm
+    - '172'
+    - x
+    - x
+Table 10:
+  caption: 'Table 10: stream=oper/enda/mnth/moda/edmm/edmo, levtype=pt: potential
+    temperature level parameters: instantaneous'
+  header_row:
+  - count
+  - name
+  - units
+  - shortName
+  - paramId
+  - an
+  - fc
+  rows:
+  - - 1
+    - Montgomery potential
+    - m**2 s**-2
+    - mont
+    - '53'
+    - x
+    - ''
+  - - 2
+    - Pressure
+    - Pa
+    - pres
+    - '54'
+    - x
+    - ''
+  - - 3
+    - Potential vorticity
+    - K m**2 kg**-1 s**-1
+    - pv
+    - '60'
+    - x
+    - ''
+  - - 4
+    - U component of wind
+    - m s**-1
+    - u
+    - '131'
+    - x
+    - ''
+  - - 5
+    - V component of wind
+    - m s**-1
+    - v
+    - '132'
+    - x
+    - ''
+  - - 6
+    - Specific humidity
+    - kg kg**-1
+    - q
+    - '133'
+    - x
+    - ''
+  - - 7
+    - Vorticity (relative)
+    - s**-1
+    - vo
+    - '138'
+    - x
+    - ''
+  - - 8
+    - Divergence
+    - s**-1
+    - d
+    - '155'
+    - x
+    - ''
+  - - 9
+    - Ozone mass mixing ratio
+    - kg kg**-1
+    - o3
+    - '203'
+    - x
+    - ''
+Table 11:
+  caption: 'Table 11: stream=oper/enda/mnth/moda/edmm/edmo, levtype=pv: potential
+    vorticity level parameters: instantaneous'
+  header_row:
+  - count
+  - name
+  - units
+  - shortName
+  - paramId
+  - an
+  - fc
+  rows:
+  - - 1
+    - Potential temperature
+    - K
+    - pt
+    - '3'
+    - x
+    - ''
+  - - 2
+    - Pressure
+    - Pa
+    - pres
+    - '54'
+    - x
+    - ''
+  - - 3
+    - Geopotential
+    - m**2 s**-2
+    - z
+    - '129'
+    - x
+    - ''
+  - - 4
+    - U component of wind
+    - m s**-1
+    - u
+    - '131'
+    - x
+    - ''
+  - - 5
+    - V component of wind
+    - m s**-1
+    - v
+    - '132'
+    - x
+    - ''
+  - - 6
+    - Specific humidity
+    - kg kg**-1
+    - q
+    - '133'
+    - x
+    - ''
+  - - 7
+    - Ozone mass mixing ratio
+    - kg kg**-1
+    - o3
+    - '203'
+    - x
+    - ''
+Table 12:
+  caption: 'Table 12: stream=oper/enda/mnth/moda/edmm/edmo, levtype=ml: model level
+    parameters: instantaneous'
+  header_row:
+  - count
+  - name
+  - units
+  - shortName
+  - paramId
+  - an
+  - fc
+  rows:
+  - - 1
+    - Specific rain water content
+    - kg kg**-1
+    - crwc
+    - '75'
+    - x
+    - x
+  - - 2
+    - Specific snow water content
+    - kg kg**-1
+    - cswc
+    - '76'
+    - x
+    - x
+  - - 3
+    - Eta-coordinate vertical velocity
+    - s**-1
+    - etadot
+    - '77'
+    - x
+    - x
+  - - 4
+    - Geopotential*
+    - m**2 s**-2
+    - z
+    - '129'
+    - x
+    - x
+  - - 5
+    - Temperature
+    - K
+    - t
+    - '130'
+    - x
+    - x
+  - - 6
+    - U component of wind
+    - m s**-1
+    - u
+    - '131'
+    - x
+    - x
+  - - 7
+    - V component of wind
+    - m s**-1
+    - v
+    - '132'
+    - x
+    - x
+  - - 8
+    - Specific humidity
+    - kg kg**-1
+    - q
+    - '133'
+    - x
+    - x
+  - - 9
+    - Vertical velocity
+    - Pa s**-1
+    - w
+    - '135'
+    - x
+    - x
+  - - 10
+    - Vorticity (relative)
+    - s**-1
+    - vo
+    - '138'
+    - x
+    - x
+  - - 11
+    - Logarithm of surface pressure*
+    - '~'
+    - lnsp
+    - '152'
+    - x
+    - x
+  - - 12
+    - Divergence
+    - s**-1
+    - d
+    - '155'
+    - x
+    - x
+  - - 13
+    - Ozone mass mixing ratio
+    - kg kg**-1
+    - o3
+    - '203'
+    - x
+    - x
+  - - 14
+    - Specific cloud liquid water content
+    - kg kg**-1
+    - clwc
+    - '246'
+    - x
+    - x
+  - - 15
+    - Specific cloud ice water content
+    - kg kg**-1
+    - ciwc
+    - '247'
+    - x
+    - x
+  - - 16
+    - Fraction of cloud cover
+    - (0 - 1)
+    - cc
+    - '248'
+    - x
+    - x
+Table 13:
+  caption: 'Table 13: stream=oper/enda/mnth/moda/edmm/edmo, levtype=ml: model level
+    parameters: mean rates'
+  header_row:
+  - count
+  - name
+  - units
+  - shortName
+  - paramId
+  - an
+  - fc
+  rows:
+  - - 1
+    - Mean temperature tendency due to short-wave radiation
+    - K s**-1
+    - mttswr
+    - '235001'
+    - ''
+    - x
+  - - 2
+    - Mean temperature tendency due to long-wave radiation
+    - K s**-1
+    - mttlwr
+    - '235002'
+    - ''
+    - x
+  - - 3
+    - Mean temperature tendency due to short-wave radiation, clear sky
+    - K s**-1
+    - mttswrcs
+    - '235003'
+    - ''
+    - x
+  - - 4
+    - Mean temperature tendency due to long-wave radiation, clear sky
+    - K s**-1
+    - mttlwrcs
+    - '235004'
+    - ''
+    - x
+  - - 5
+    - Mean temperature tendency due to parametrisations
+    - K s**-1
+    - mttpm
+    - '235005'
+    - ''
+    - x
+  - - 6
+    - Mean specific humidity tendency due to parametrisations
+    - kg kg**-1 s**-1
+    - mqtpm
+    - '235006'
+    - ''
+    - x
+  - - 7
+    - Mean eastward wind tendency due to parametrisations
+    - m s**-2
+    - mutpm
+    - '235007'
+    - ''
+    - x
+  - - 8
+    - Mean northward wind tendency due to parametrisations
+    - m s**-2
+    - mvtpm
+    - '235008'
+    - ''
+    - x
+  - - 9
+    - Mean updraught mass flux*
+    - kg m**-2 s**-1
+    - mumf
+    - '235009'
+    - ''
+    - x
+  - - 10
+    - Mean downdraught mass flux*
+    - kg m**-2 s**-1
+    - mdmf
+    - '235010'
+    - ''
+    - x
+  - - 11
+    - Mean updraught detrainment rate
+    - kg m**-3 s**-1
+    - mudr
+    - '235011'
+    - ''
+    - x
+  - - 12
+    - Mean downdraught detrainment rate
+    - kg m**-3 s**-1
+    - mddr
+    - '235012'
+    - ''
+    - x
+  - - 13
+    - Mean total precipitation flux*
+    - kg m**-2 s**-1
+    - mtpf
+    - '235013'
+    - ''
+    - x
+  - - 14
+    - Mean turbulent diffusion coefficient for heat*
+    - m**2 s**-1
+    - mtdch
+    - '235014'
+    - ''
+    - x
+Table 2:
+  caption: 'Table 2: stream=oper/enda/mnth/moda/edmm/edmo, levtype=sfc: surface and
+    single level parameters: instantaneous'
+  header_row:
+  - count
+  - name
+  - units
+  - shortName
+  - paramId
+  - an
+  - fc
+  rows:
+  - - 1
+    - Convective inhibition
+    - J kg**-1
+    - cin
+    - '228001'
+    - ''
+    - x
+  - - 2
+    - Friction velocity
+    - m s**-1
+    - zust
+    - '228003'
+    - ''
+    - x
+  - - 3
+    - Lake mix-layer temperature
+    - K
+    - lmlt
+    - '228008'
+    - x
+    - x
+  - - 4
+    - Lake mix-layer depth
+    - m
+    - lmld
+    - '228009'
+    - x
+    - x
+  - - 5
+    - Lake bottom temperature
+    - K
+    - lblt
+    - '228010'
+    - x
+    - x
+  - - 6
+    - Lake total layer temperature
+    - K
+    - ltlt
+    - '228011'
+    - x
+    - x
+  - - 7
+    - Lake shape factor
+    - dimensionless
+    - lshf
+    - '228012'
+    - x
+    - x
+  - - 8
+    - Lake ice temperature
+    - K
+    - lict
+    - '228013'
+    - x
+    - x
+  - - 9
+    - Lake ice depth
+    - m
+    - licd
+    - '228014'
+    - x
+    - x
+  - - 10
+    - UV visible albedo for direct radiation
+    - (0 - 1)
+    - aluvp
+    - '15'
+    - x
+    - x
+  - - 11
+    - Minimum vertical gradient of refractivity inside trapping layer
+    - m**-1
+    - dndzn
+    - '228015'
+    - ''
+    - x
+  - - 12
+    - UV visible albedo for diffuse radiation
+    - (0 - 1)
+    - aluvd
+    - '16'
+    - x
+    - x
+  - - 13
+    - Mean vertical gradient of refractivity inside trapping layer
+    - m**-1
+    - dndza
+    - '228016'
+    - ''
+    - x
+  - - 14
+    - Near IR albedo for direct radiation
+    - (0 - 1)
+    - alnip
+    - '17'
+    - x
+    - x
+  - - 15
+    - Duct base height
+    - m
+    - dctb
+    - '228017'
+    - ''
+    - x
+  - - 16
+    - Near IR albedo for diffuse radiation
+    - (0 - 1)
+    - alnid
+    - '18'
+    - x
+    - x
+  - - 17
+    - Trapping layer base height
+    - m
+    - tplb
+    - '228018'
+    - ''
+    - x
+  - - 18
+    - Trapping layer top height
+    - m
+    - tplt
+    - '228019'
+    - ''
+    - x
+  - - 19
+    - Cloud base height
+    - m
+    - cbh
+    - '228023'
+    - ''
+    - x
+  - - 20
+    - Zero degree level
+    - m
+    - deg0l
+    - '228024'
+    - ''
+    - x
+  - - 21
+    - Instantaneous 10 metre wind gust
+    - m s**-1
+    - i10fg
+    - '228029'
+    - ''
+    - x
+  - - 22
+    - Sea ice area fraction
+    - (0 - 1)
+    - ci
+    - '31'
+    - x
+    - x
+  - - 23
+    - Snow albedo
+    - (0 - 1)
+    - asn
+    - '32'
+    - x
+    - x
+  - - 24
+    - Snow density
+    - kg m**-3
+    - rsn
+    - '33'
+    - x
+    - x
+  - - 25
+    - Sea surface temperature
+    - K
+    - sst
+    - '34'
+    - x
+    - x
+  - - 26
+    - Ice temperature layer 1
+    - K
+    - istl1
+    - '35'
+    - x
+    - x
+  - - 27
+    - Ice temperature layer 2
+    - K
+    - istl2
+    - '36'
+    - x
+    - x
+  - - 28
+    - Ice temperature layer 3
+    - K
+    - istl3
+    - '37'
+    - x
+    - x
+  - - 29
+    - Ice temperature layer 4
+    - K
+    - istl4
+    - '38'
+    - x
+    - x
+  - - 30
+    - Volumetric soil water layer 11
+    - m**3 m**-3
+    - swvl1
+    - '39'
+    - x
+    - x
+  - - 31
+    - Volumetric soil water layer 21
+    - m**3 m**-3
+    - swvl2
+    - '40'
+    - x
+    - x
+  - - 32
+    - Volumetric soil water layer 31
+    - m**3 m**-3
+    - swvl3
+    - '41'
+    - x
+    - x
+  - - 33
+    - Volumetric soil water layer 41
+    - m**3 m**-3
+    - swvl4
+    - '42'
+    - x
+    - x
+  - - 34
+    - Convective available potential energy
+    - J kg**-1
+    - cape
+    - '59'
+    - x
+    - x
+  - - 35
+    - Leaf area index, low vegetation
+    - m**2 m**-2
+    - lai_lv
+    - '66'
+    - x
+    - x
+  - - 36
+    - Leaf area index, high vegetation
+    - m**2 m**-2
+    - lai_hv
+    - '67'
+    - x
+    - x
+  - - 37
+    - Neutral wind at 10 m u-component
+    - m s**-1
+    - u10n
+    - '228131'
+    - x
+    - x
+  - - 38
+    - Neutral wind at 10 m v-component
+    - m s**-1
+    - v10n
+    - '228132'
+    - x
+    - x
+  - - 39
+    - Surface pressure
+    - Pa
+    - sp
+    - '134'
+    - x
+    - x
+  - - 40
+    - Soil temperature level 11
+    - K
+    - stl1
+    - '139'
+    - x
+    - x
+  - - 41
+    - Snow depth
+    - m of water equivalent
+    - sd
+    - '141'
+    - x
+    - x
+  - - 42
+    - Charnock
+    - '~'
+    - chnk
+    - '148'
+    - x
+    - x
+  - - 43
+    - Mean sea level pressure
+    - Pa
+    - msl
+    - '151'
+    - x
+    - x
+  - - 44
+    - Boundary layer height
+    - m
+    - blh
+    - '159'
+    - x
+    - x
+  - - 45
+    - Total cloud cover
+    - (0 - 1)
+    - tcc
+    - '164'
+    - x
+    - x
+  - - 46
+    - 10 metre U wind component
+    - m s**-1
+    - 10u
+    - '165'
+    - x
+    - x
+  - - 47
+    - 10 metre V wind component
+    - m s**-1
+    - 10v
+    - '166'
+    - x
+    - x
+  - - 48
+    - 2 metre temperature
+    - K
+    - 2t
+    - '167'
+    - x
+    - x
+  - - 49
+    - 2 metre dewpoint temperature
+    - K
+    - 2d
+    - '168'
+    - x
+    - x
+  - - 50
+    - Soil temperature level 21
+    - K
+    - stl2
+    - '170'
+    - x
+    - x
+  - - 51
+    - Soil temperature level 31
+    - K
+    - stl3
+    - '183'
+    - x
+    - x
+  - - 52
+    - Low cloud cover
+    - (0 - 1)
+    - lcc
+    - '186'
+    - x
+    - x
+  - - 53
+    - Medium cloud cover
+    - (0 - 1)
+    - mcc
+    - '187'
+    - x
+    - x
+  - - 54
+    - High cloud cover
+    - (0 - 1)
+    - hcc
+    - '188'
+    - x
+    - x
+  - - 55
+    - Skin reservoir content
+    - m of water equivalent
+    - src
+    - '198'
+    - x
+    - x
+  - - 56
+    - Instantaneous large-scale surface precipitation fraction
+    - (0 - 1)
+    - ilspf
+    - '228217'
+    - ''
+    - x
+  - - 57
+    - Convective rain rate
+    - kg m**-2 s**-1
+    - crr
+    - '228218'
+    - ''
+    - x
+  - - 58
+    - Large scale rain rate
+    - kg m**-2 s**-1
+    - lsrr
+    - '228219'
+    - ''
+    - x
+  - - 59
+    - Convective snowfall rate water equivalent
+    - kg m**-2 s**-1
+    - csfr
+    - '228220'
+    - ''
+    - x
+  - - 60
+    - Large scale snowfall rate water equivalent
+    - kg m**-2 s**-1
+    - lssfr
+    - '228221'
+    - ''
+    - x
+  - - 61
+    - Instantaneous eastward turbulent surface stress
+    - N m**-2
+    - iews
+    - '229'
+    - x
+    - x
+  - - 62
+    - Instantaneous northward turbulent surface stress
+    - N m**-2
+    - inss
+    - '230'
+    - x
+    - x
+  - - 63
+    - Instantaneous surface sensible heat flux
+    - W m**-2
+    - ishf
+    - '231'
+    - x
+    - x
+  - - 64
+    - Instantaneous moisture flux
+    - kg m**-2 s**-1
+    - ie
+    - '232'
+    - x
+    - x
+  - - 65
+    - Skin temperature
+    - K
+    - skt
+    - '235'
+    - x
+    - x
+  - - 66
+    - Soil temperature level 41
+    - K
+    - stl4
+    - '236'
+    - x
+    - x
+  - - 67
+    - Temperature of snow layer
+    - K
+    - tsn
+    - '238'
+    - x
+    - x
+  - - 68
+    - Forecast albedo
+    - (0 - 1)
+    - fal
+    - '243'
+    - x
+    - x
+  - - 69
+    - Forecast surface roughness
+    - m
+    - fsr
+    - '244'
+    - x
+    - x
+  - - 70
+    - Forecast logarithm of surface roughness for heat
+    - '~'
+    - flsr
+    - '245'
+    - x
+    - x
+  - - 71
+    - 100 metre U wind component
+    - m s**-1
+    - 100u
+    - '228246'
+    - x
+    - x
+  - - 72
+    - 100 metre V wind component
+    - m s**-1
+    - 100v
+    - '228247'
+    - x
+    - x
+  - - 73
+    - Precipitation type
+    - code table (4.201)
+    - ptype
+    - 260015*
+    - ''
+    - x
+  - - 74
+    - K index
+    - K
+    - kx
+    - 260121*
+    - ''
+    - x
+  - - 75
+    - Total totals index
+    - K
+    - totalx
+    - 260123*
+    - ''
+    - x
+Table 3:
+  caption: 'Table 3: stream=oper/enda/mnth/moda/edmm/edmo, levtype=sfc: surface and
+    single level parameters: accumulations'
+  header_row:
+  - count
+  - name
+  - units
+  - shortName
+  - paramId
+  - an
+  - fc
+  rows:
+  - - 1
+    - Large-scale precipitation fraction
+    - s
+    - lspf
+    - '50'
+    - ''
+    - x
+  - - 2
+    - Downward UV radiation at the surface
+    - J m**-2
+    - uvb
+    - '57'
+    - ''
+    - x
+  - - 3
+    - Boundary layer dissipation
+    - J m**-2
+    - bld
+    - '145'
+    - ''
+    - x
+  - - 4
+    - Surface sensible heat flux
+    - J m**-2
+    - sshf
+    - '146'
+    - ''
+    - x
+  - - 5
+    - Surface latent heat flux
+    - J m**-2
+    - slhf
+    - '147'
+    - ''
+    - x
+  - - 6
+    - Surface solar radiation downwards
+    - J m**-2
+    - ssrd
+    - '169'
+    - ''
+    - x
+  - - 7
+    - Surface thermal radiation downwards
+    - J m**-2
+    - strd
+    - '175'
+    - ''
+    - x
+  - - 8
+    - Surface net solar radiation
+    - J m**-2
+    - ssr
+    - '176'
+    - ''
+    - x
+  - - 9
+    - Surface net thermal radiation
+    - J m**-2
+    - str
+    - '177'
+    - ''
+    - x
+  - - 10
+    - Top net solar radiation
+    - J m**-2
+    - tsr
+    - '178'
+    - ''
+    - x
+  - - 11
+    - Top net thermal radiation
+    - J m**-2
+    - ttr
+    - '179'
+    - ''
+    - x
+  - - 12
+    - Eastward turbulent surface stress
+    - N m**-2 s
+    - ewss
+    - '180'
+    - ''
+    - x
+  - - 13
+    - Northward turbulent surface stress
+    - N m**-2 s
+    - nsss
+    - '181'
+    - ''
+    - x
+  - - 14
+    - Eastward gravity wave surface stress
+    - N m**-2 s
+    - lgws
+    - '195'
+    - ''
+    - x
+  - - 15
+    - Northward gravity wave surface stress
+    - N m**-2 s
+    - mgws
+    - '196'
+    - ''
+    - x
+  - - 16
+    - Gravity wave dissipation
+    - J m**-2
+    - gwd
+    - '197'
+    - ''
+    - x
+  - - 17
+    - Top net solar radiation, clear sky
+    - J m**-2
+    - tsrc
+    - '208'
+    - ''
+    - x
+  - - 18
+    - Top net thermal radiation, clear sky
+    - J m**-2
+    - ttrc
+    - '209'
+    - ''
+    - x
+  - - 19
+    - Surface net solar radiation, clear sky
+    - J m**-2
+    - ssrc
+    - '210'
+    - ''
+    - x
+  - - 20
+    - Surface net thermal radiation, clear sky
+    - J m**-2
+    - strc
+    - '211'
+    - ''
+    - x
+  - - 21
+    - TOA incident solar radiation
+    - J m**-2
+    - tisr
+    - '212'
+    - ''
+    - x
+  - - 22
+    - Vertically integrated moisture divergence
+    - kg m**-2
+    - vimd
+    - '213'
+    - ''
+    - x
+  - - 23
+    - Total sky direct solar radiation at surface
+    - J m**-2
+    - fdir
+    - '228021'
+    - ''
+    - x
+  - - 24
+    - Clear-sky direct solar radiation at surface
+    - J m**-2
+    - cdir
+    - '228022'
+    - ''
+    - x
+  - - 25
+    - Surface solar radiation downward clear-sky
+    - J m**-2
+    - ssrdc
+    - '228129'
+    - ''
+    - x
+  - - 26
+    - Surface thermal radiation downward clear-sky
+    - J m**-2
+    - strdc
+    - '228130'
+    - ''
+    - x
+  - - 27
+    - Surface runoff
+    - m
+    - sro
+    - '8'
+    - ''
+    - x
+  - - 28
+    - Sub-surface runoff
+    - m
+    - ssro
+    - '9'
+    - ''
+    - x
+  - - 29
+    - Snow evaporation
+    - m of water equivalent
+    - es
+    - '44'
+    - ''
+    - x
+  - - 30
+    - Snowmelt
+    - m of water equivalent
+    - smlt
+    - '45'
+    - ''
+    - x
+  - - 31
+    - Large-scale precipitation
+    - m
+    - lsp
+    - '142'
+    - ''
+    - x
+  - - 32
+    - Convective precipitation
+    - m
+    - cp
+    - '143'
+    - ''
+    - x
+  - - 33
+    - Snowfall
+    - m of water equivalent
+    - sf
+    - '144'
+    - ''
+    - x
+  - - 34
+    - Evaporation
+    - m of water equivalent
+    - e
+    - '182'
+    - ''
+    - x
+  - - 35
+    - Runoff
+    - m
+    - ro
+    - '205'
+    - ''
+    - x
+  - - 36
+    - Total precipitation
+    - m
+    - tp
+    - '228'
+    - ''
+    - x
+  - - 37
+    - Convective snowfall
+    - m of water equivalent
+    - csf
+    - '239'
+    - ''
+    - x
+  - - 38
+    - Large-scale snowfall
+    - m of water equivalent
+    - lsf
+    - '240'
+    - ''
+    - x
+  - - 39
+    - Potential evaporation
+    - m
+    - pev
+    - '228251'
+    - ''
+    - x
+Table 4:
+  caption: "\_Table 4: stream=oper/enda/mnth/moda/edmm/edmo, levtype=sfc: surface\
+    \ and single level parameters: mean rates"
+  header_row:
+  - count
+  - name
+  - units
+  - shortName
+  - paramId
+  - an
+  - fc
+  rows:
+  - - 1
+    - Mean surface runoff rate
+    - kg m**-2 s**-1
+    - msror
+    - '235020'
+    - ''
+    - x
+  - - 2
+    - Mean sub-surface runoff rate
+    - kg m**-2 s**-1
+    - mssror
+    - '235021'
+    - ''
+    - x
+  - - 3
+    - Mean snow evaporation rate
+    - kg m**-2 s**-1
+    - mser
+    - '235023'
+    - ''
+    - x
+  - - 4
+    - Mean snowmelt rate
+    - kg m**-2 s**-1
+    - msmr
+    - '235024'
+    - ''
+    - x
+  - - 5
+    - Mean large-scale precipitation fraction
+    - Proportion
+    - mlspf
+    - '235026'
+    - ''
+    - x
+  - - 6
+    - Mean surface downward UV radiation flux
+    - W m**-2
+    - msdwuvrf
+    - '235027'
+    - ''
+    - x
+  - - 7
+    - Mean large-scale precipitation rate
+    - kg m**-2 s**-1
+    - mlspr
+    - '235029'
+    - ''
+    - x
+  - - 8
+    - Mean convective precipitation rate
+    - kg m**-2 s**-1
+    - mcpr
+    - '235030'
+    - ''
+    - x
+  - - 9
+    - Mean snowfall rate
+    - kg m**-2 s**-1
+    - msr
+    - '235031'
+    - ''
+    - x
+  - - 10
+    - Mean boundary layer dissipation
+    - W m**-2
+    - mbld
+    - '235032'
+    - ''
+    - x
+  - - 11
+    - Mean surface sensible heat flux
+    - W m**-2
+    - msshf
+    - '235033'
+    - ''
+    - x
+  - - 12
+    - Mean surface latent heat flux
+    - W m**-2
+    - mslhf
+    - '235034'
+    - ''
+    - x
+  - - 13
+    - Mean surface downward short-wave radiation flux
+    - W m**-2
+    - msdwswrf
+    - '235035'
+    - ''
+    - x
+  - - 14
+    - Mean surface downward long-wave radiation flux
+    - W m**-2
+    - msdwlwrf
+    - '235036'
+    - ''
+    - x
+  - - 15
+    - Mean surface net short-wave radiation flux
+    - W m**-2
+    - msnswrf
+    - '235037'
+    - ''
+    - x
+  - - 16
+    - Mean surface net long-wave radiation flux
+    - W m**-2
+    - msnlwrf
+    - '235038'
+    - ''
+    - x
+  - - 17
+    - Mean top net short-wave radiation flux
+    - W m**-2
+    - mtnswrf
+    - '235039'
+    - ''
+    - x
+  - - 18
+    - Mean top net long-wave radiation flux
+    - W m**-2
+    - mtnlwrf
+    - '235040'
+    - ''
+    - x
+  - - 19
+    - Mean eastward turbulent surface stress
+    - N m**-2
+    - metss
+    - '235041'
+    - ''
+    - x
+  - - 20
+    - Mean northward turbulent surface stress
+    - N m**-2
+    - mntss
+    - '235042'
+    - ''
+    - x
+  - - 21
+    - Mean evaporation rate
+    - kg m**-2 s**-1
+    - mer
+    - '235043'
+    - ''
+    - x
+  - - 22
+    - Mean eastward gravity wave surface stress
+    - N m**-2
+    - megwss
+    - '235045'
+    - ''
+    - x
+  - - 23
+    - Mean northward gravity wave surface stress
+    - N m**-2
+    - mngwss
+    - '235046'
+    - ''
+    - x
+  - - 24
+    - Mean gravity wave dissipation
+    - W m**-2
+    - mgwd
+    - '235047'
+    - ''
+    - x
+  - - 25
+    - Mean runoff rate
+    - kg m**-2 s**-1
+    - mror
+    - '235048'
+    - ''
+    - x
+  - - 26
+    - Mean top net short-wave radiation flux, clear sky
+    - W m**-2
+    - mtnswrfcs
+    - '235049'
+    - ''
+    - x
+  - - 27
+    - Mean top net long-wave radiation flux, clear sky
+    - W m**-2
+    - mtnlwrfcs
+    - '235050'
+    - ''
+    - x
+  - - 28
+    - Mean surface net short-wave radiation flux, clear sky
+    - W m**-2
+    - msnswrfcs
+    - '235051'
+    - ''
+    - x
+  - - 29
+    - Mean surface net long-wave radiation flux, clear sky
+    - W m**-2
+    - msnlwrfcs
+    - '235052'
+    - ''
+    - x
+  - - 30
+    - Mean top downward short-wave radiation flux
+    - W m**-2
+    - mtdwswrf
+    - '235053'
+    - ''
+    - x
+  - - 31
+    - Mean vertically integrated moisture divergence
+    - kg m**-2 s**-1
+    - mvimd
+    - '235054'
+    - ''
+    - x
+  - - 32
+    - Mean total precipitation rate
+    - kg m**-2 s**-1
+    - mtpr
+    - '235055'
+    - ''
+    - x
+  - - 33
+    - Mean convective snowfall rate
+    - kg m**-2 s**-1
+    - mcsr
+    - '235056'
+    - ''
+    - x
+  - - 34
+    - Mean large-scale snowfall rate
+    - kg m**-2 s**-1
+    - mlssr
+    - '235057'
+    - ''
+    - x
+  - - 35
+    - Mean surface direct short-wave radiation flux
+    - W m**-2
+    - msdrswrf
+    - '235058'
+    - ''
+    - x
+  - - 36
+    - Mean surface direct short-wave radiation flux, clear sky
+    - W m**-2
+    - msdrswrfcs
+    - '235059'
+    - ''
+    - x
+  - - 37
+    - Mean surface downward short-wave radiation flux, clear sky
+    - W m**-2
+    - msdwswrfcs
+    - '235068'
+    - ''
+    - x
+  - - 38
+    - Mean surface downward long-wave radiation flux, clear sky
+    - W m**-2
+    - msdwlwrfcs
+    - '235069'
+    - ''
+    - x
+  - - 39
+    - Mean potential evaporation rate
+    - kg m**-2 s**-1
+    - mper
+    - '235070'
+    - ''
+    - x
+Table 5:
+  caption: 'Table 5: stream=oper/enda, levtype=sfc: surface and single level parameters:
+    minimum/maximum'
+  header_row:
+  - count
+  - name
+  - units
+  - shortName
+  - paramId
+  - an
+  - fc
+  rows:
+  - - 1
+    - 10 metre wind gust since previous post-processing
+    - m s**-1
+    - 10fg
+    - '49'
+    - ''
+    - x
+  - - 2
+    - Maximum temperature at 2 metres since previous post-processing
+    - K
+    - mx2t
+    - '201'
+    - ''
+    - x
+  - - 3
+    - Minimum temperature at 2 metres since previous post-processing
+    - K
+    - mn2t
+    - '202'
+    - ''
+    - x
+  - - 4
+    - Maximum total precipitation rate since previous post-processing
+    - kg m**-2 s**-1
+    - mxtpr
+    - '228226'
+    - ''
+    - x
+  - - 5
+    - Minimum total precipitation rate since previous post-processing
+    - kg m**-2 s**-1
+    - mntpr
+    - '228227'
+    - ''
+    - x
+Table 6:
+  caption: 'Table 6: stream=oper/enda/mnth/moda/edmm/edmo, levtype=sfc: surface and
+    single level parameters: vertical integrals (not available for type=em/es) and
+    total column: instantaneous'
+  header_row:
+  - count
+  - name
+  - units
+  - shortName
+  - paramId
+  - an
+  - fc
+  rows:
+  - - 1
+    - Vertical integral of mass of atmosphere
+    - kg m**-2
+    - vima
+    - '162053'
+    - x
+    - x
+  - - 2
+    - Vertical integral of temperature
+    - K kg m**-2
+    - vit
+    - '162054'
+    - x
+    - x
+  - - 3
+    - Vertical integral of kinetic energy
+    - J m**-2
+    - vike
+    - '162059'
+    - x
+    - x
+  - - 4
+    - Vertical integral of thermal energy
+    - J m**-2
+    - vithe
+    - '162060'
+    - x
+    - x
+  - - 5
+    - Vertical integral of potential+internal energy
+    - J m**-2
+    - vipie
+    - '162061'
+    - x
+    - x
+  - - 6
+    - Vertical integral of potential+internal+latent energy
+    - J m**-2
+    - vipile
+    - '162062'
+    - x
+    - x
+  - - 7
+    - Vertical integral of total energy
+    - J m**-2
+    - vitoe
+    - '162063'
+    - x
+    - x
+  - - 8
+    - Vertical integral of energy conversion
+    - W m**-2
+    - viec
+    - '162064'
+    - x
+    - x
+  - - 9
+    - Vertical integral of eastward mass flux
+    - kg m**-1 s**-1
+    - vimae
+    - '162065'
+    - x
+    - x
+  - - 10
+    - Vertical integral of northward mass flux
+    - kg m**-1 s**-1
+    - viman
+    - '162066'
+    - x
+    - x
+  - - 11
+    - Vertical integral of eastward kinetic energy flux
+    - W m**-1
+    - vikee
+    - '162067'
+    - x
+    - x
+  - - 12
+    - Vertical integral of northward kinetic energy flux
+    - W m**-1
+    - viken
+    - '162068'
+    - x
+    - x
+  - - 13
+    - Vertical integral of eastward heat flux
+    - W m**-1
+    - vithee
+    - '162069'
+    - x
+    - x
+  - - 14
+    - Vertical integral of northward heat flux
+    - W m**-1
+    - vithen
+    - '162070'
+    - x
+    - x
+  - - 15
+    - Vertical integral of eastward water vapour flux
+    - kg m**-1 s**-1
+    - viwve
+    - '162071'
+    - x
+    - x
+  - - 16
+    - Vertical integral of northward water vapour flux
+    - kg m**-1 s**-1
+    - viwvn
+    - '162072'
+    - x
+    - x
+  - - 17
+    - Vertical integral of eastward geopotential flux
+    - W m**-1
+    - vige
+    - '162073'
+    - x
+    - x
+  - - 18
+    - Vertical integral of northward geopotential flux
+    - W m**-1
+    - vign
+    - '162074'
+    - x
+    - x
+  - - 19
+    - Vertical integral of eastward total energy flux
+    - W m**-1
+    - vitoee
+    - '162075'
+    - x
+    - x
+  - - 20
+    - Vertical integral of northward total energy flux
+    - W m**-1
+    - vitoen
+    - '162076'
+    - x
+    - x
+  - - 21
+    - Vertical integral of eastward ozone flux
+    - kg m**-1 s**-1
+    - vioze
+    - '162077'
+    - x
+    - x
+  - - 22
+    - Vertical integral of northward ozone flux
+    - kg m**-1 s**-1
+    - viozn
+    - '162078'
+    - x
+    - x
+  - - 23
+    - Vertical integral of divergence of cloud liquid water flux
+    - kg m**-2 s**-1
+    - vilwd
+    - '162079'
+    - x
+    - x
+  - - 24
+    - Vertical integral of divergence of cloud frozen water flux
+    - kg m**-2 s**-1
+    - viiwd
+    - '162080'
+    - x
+    - x
+  - - 25
+    - Vertical integral of divergence of mass flux
+    - kg m**-2 s**-1
+    - vimad
+    - '162081'
+    - x
+    - x
+  - - 26
+    - Vertical integral of divergence of kinetic energy flux
+    - W m**-2
+    - viked
+    - '162082'
+    - x
+    - x
+  - - 27
+    - Vertical integral of divergence of thermal energy flux
+    - W m**-2
+    - vithed
+    - '162083'
+    - x
+    - x
+  - - 28
+    - Vertical integral of divergence of moisture flux
+    - kg m**-2 s**-1
+    - viwvd
+    - '162084'
+    - x
+    - x
+  - - 29
+    - Vertical integral of divergence of geopotential flux
+    - W m**-2
+    - vigd
+    - '162085'
+    - x
+    - x
+  - - 30
+    - Vertical integral of divergence of total energy flux
+    - W m**-2
+    - vitoed
+    - '162086'
+    - x
+    - x
+  - - 31
+    - Vertical integral of divergence of ozone flux
+    - kg m**-2 s**-1
+    - viozd
+    - '162087'
+    - x
+    - x
+  - - 32
+    - Vertical integral of eastward cloud liquid water flux
+    - kg m**-1 s**-1
+    - vilwe
+    - '162088'
+    - x
+    - x
+  - - 33
+    - Vertical integral of northward cloud liquid water flux
+    - kg m**-1 s**-1
+    - vilwn
+    - '162089'
+    - x
+    - x
+  - - 34
+    - Vertical integral of eastward cloud frozen water flux
+    - kg m**-1 s**-1
+    - viiwe
+    - '162090'
+    - x
+    - x
+  - - 35
+    - Vertical integral of northward cloud frozen water flux
+    - kg m**-1 s**-1
+    - viiwn
+    - '162091'
+    - x
+    - x
+  - - 36
+    - Vertical integral of mass tendency
+    - kg m**-2 s**-1
+    - vimat
+    - '162092'
+    - x
+    - ''
+  - - 37
+    - Total column cloud liquid water
+    - kg m**-2
+    - tclw
+    - '78'
+    - x
+    - x
+  - - 38
+    - Total column cloud ice water
+    - kg m**-2
+    - tciw
+    - '79'
+    - x
+    - x
+  - - 39
+    - Total column supercooled liquid water
+    - kg m**-2
+    - tcslw
+    - '228088'
+    - ''
+    - x
+  - - 40
+    - Total column rain water
+    - kg m**-2
+    - tcrw
+    - '228089'
+    - x
+    - x
+  - - 41
+    - Total column snow water
+    - kg m**-2
+    - tcsw
+    - '228090'
+    - x
+    - x
+  - - 42
+    - Total column water
+    - kg m**-2
+    - tcw
+    - '136'
+    - x
+    - x
+  - - 43
+    - Total column water vapour
+    - kg m**-2
+    - tcwv
+    - '137'
+    - x
+    - x
+  - - 44
+    - Total column ozone
+    - kg m**-2
+    - tco3
+    - '206'
+    - x
+    - x
+Table 7:
+  caption: 'Table 7: stream=wave/ewda/wamo/wamd/ewmm/ewmo: wave parameters: instantaneous'
+  header_row:
+  - count
+  - name
+  - units
+  - shortName
+  - paramId
+  - an
+  - fc
+  rows:
+  - - 1
+    - Significant wave height of first swell partition
+    - m
+    - swh1
+    - '140121'
+    - x
+    - x
+  - - 2
+    - Mean wave direction of first swell partition
+    - degrees
+    - mwd1
+    - '140122'
+    - x
+    - x
+  - - 3
+    - Mean wave period of first swell partition
+    - s
+    - mwp1
+    - '140123'
+    - x
+    - x
+  - - 4
+    - Significant wave height of second swell partition
+    - m
+    - swh2
+    - '140124'
+    - x
+    - x
+  - - 5
+    - Mean wave direction of second swell partition
+    - degrees
+    - mwd2
+    - '140125'
+    - x
+    - x
+  - - 6
+    - Mean wave period of second swell partition
+    - s
+    - mwp2
+    - '140126'
+    - x
+    - x
+  - - 7
+    - Significant wave height of third swell partition
+    - m
+    - swh3
+    - '140127'
+    - x
+    - x
+  - - 8
+    - Mean wave direction of third swell partition
+    - degrees
+    - mwd3
+    - '140128'
+    - x
+    - x
+  - - 9
+    - Mean wave period of third swell partition
+    - s
+    - mwp3
+    - '140129'
+    - x
+    - x
+  - - 10
+    - Wave Spectral Skewness
+    - dimensionless
+    - wss
+    - '140207'
+    - x
+    - x
+  - - 11
+    - Free convective velocity over the oceans
+    - m s**-1
+    - wstar
+    - '140208'
+    - x
+    - x
+  - - 12
+    - Air density over the oceans
+    - kg m**-3
+    - rhoao
+    - '140209'
+    - x
+    - x
+  - - 13
+    - Normalized energy flux into waves
+    - dimensionless
+    - phiaw
+    - '140211'
+    - x
+    - x
+  - - 14
+    - Normalized energy flux into ocean
+    - dimensionless
+    - phioc
+    - '140212'
+    - x
+    - x
+  - - 15
+    - Normalized stress into ocean
+    - dimensionless
+    - tauoc
+    - '140214'
+    - x
+    - x
+  - - 16
+    - U-component stokes drift
+    - m s**-1
+    - ust
+    - '140215'
+    - x
+    - x
+  - - 17
+    - V-component stokes drift
+    - m s**-1
+    - vst
+    - '140216'
+    - x
+    - x
+  - - 18
+    - Period corresponding to maximum individual wave height
+    - s
+    - tmax
+    - '140217'
+    - x
+    - x
+  - - 19
+    - Maximum individual wave height
+    - m
+    - hmax
+    - '140218'
+    - x
+    - x
+  - - 20
+    - Model bathymetry
+    - m
+    - wmb
+    - '140219'
+    - x
+    - x
+  - - 21
+    - Mean wave period based on first moment
+    - s
+    - mp1
+    - '140220'
+    - x
+    - x
+  - - 22
+    - Mean zero-crossing wave period
+    - s
+    - mp2
+    - '140221'
+    - x
+    - x
+  - - 23
+    - Wave spectral directional width
+    - dimensionless
+    - wdw
+    - '140222'
+    - x
+    - x
+  - - 24
+    - Mean wave period based on first moment for wind waves
+    - s
+    - p1ww
+    - '140223'
+    - x
+    - x
+  - - 25
+    - Mean wave period based on second moment for wind waves
+    - s
+    - p2ww
+    - '140224'
+    - x
+    - x
+  - - 26
+    - Wave spectral directional width for wind waves
+    - dimensionless
+    - dwww
+    - '140225'
+    - x
+    - x
+  - - 27
+    - Mean wave period based on first moment for swell
+    - s
+    - p1ps
+    - '140226'
+    - x
+    - x
+  - - 28
+    - Mean wave period based on second moment for swell
+    - s
+    - p2ps
+    - '140227'
+    - x
+    - x
+  - - 29
+    - Wave spectral directional width for swell
+    - dimensionless
+    - dwps
+    - '140228'
+    - x
+    - x
+  - - 30
+    - Significant height of combined wind waves and swell
+    - m
+    - swh
+    - '140229'
+    - x
+    - x
+  - - 31
+    - Mean wave direction
+    - degrees
+    - mwd
+    - '140230'
+    - x
+    - x
+  - - 32
+    - Peak wave period
+    - s
+    - pp1d
+    - '140231'
+    - x
+    - x
+  - - 33
+    - Mean wave period
+    - s
+    - mwp
+    - '140232'
+    - x
+    - x
+  - - 34
+    - Coefficient of drag with waves
+    - dimensionless
+    - cdww
+    - '140233'
+    - x
+    - x
+  - - 35
+    - Significant height of wind waves
+    - m
+    - shww
+    - '140234'
+    - x
+    - x
+  - - 36
+    - Mean direction of wind waves
+    - degrees
+    - mdww
+    - '140235'
+    - x
+    - x
+  - - 37
+    - Mean period of wind waves
+    - s
+    - mpww
+    - '140236'
+    - x
+    - x
+  - - 38
+    - Significant height of total swell
+    - m
+    - shts
+    - '140237'
+    - x
+    - x
+  - - 39
+    - Mean direction of total swell
+    - degrees
+    - mdts
+    - '140238'
+    - x
+    - x
+  - - 40
+    - Mean period of total swell
+    - s
+    - mpts
+    - '140239'
+    - x
+    - x
+  - - 41
+    - Mean square slope of waves
+    - dimensionless
+    - msqs
+    - '140244'
+    - x
+    - x
+  - - 42
+    - 10 metre wind speed
+    - m s**-1
+    - wind
+    - '140245'
+    - x
+    - x
+  - - 43
+    - Altimeter wave height
+    - m
+    - awh
+    - '140246'
+    - x
+    - ''
+  - - 44
+    - Altimeter corrected wave height
+    - m
+    - acwh
+    - '140247'
+    - x
+    - ''
+  - - 45
+    - Altimeter range relative correction
+    - '~'
+    - arrc
+    - '140248'
+    - x
+    - ''
+  - - 46
+    - 10 metre wind direction
+    - degrees
+    - dwi
+    - '140249'
+    - x
+    - x
+  - - 47
+    - Wave spectral kurtosis
+    - dimensionless
+    - wsk
+    - '140252'
+    - x
+    - x
+  - - 48
+    - Benjamin-Feir index
+    - dimensionless
+    - bfi
+    - '140253'
+    - x
+    - x
+  - - 49
+    - Wave spectral peakedness
+    - dimensionless
+    - wsp
+    - '140254'
+    - x
+    - x
+  - - 50
+    - 2D wave spectra (single)
+    - m**2 s radian**-1
+    - 2dfd
+    - 140251*
+    - x
+    - ''
+Table 8:
+  caption: 'Table 8: stream=mnth/moda/edmm/edmo, levtype=sfc or wamo/wamd/ewmm/ewmo:
+    monthly mean surface and single level and wave parameters: exceptions from Tables
+    1-7'
+  header_row:
+  - count
+  - name
+  - units
+  - shortName
+  - paramId
+  - an
+  - fc
+  rows:
+  - - 1
+    - UV visible albedo for direct radiation
+    - (0 - 1)
+    - aluvp
+    - '15'
+    - x
+    - no mean
+  - - 2
+    - UV visible albedo for diffuse radiation
+    - (0 - 1)
+    - aluvd
+    - '16'
+    - x
+    - no mean
+  - - 3
+    - Near IR albedo for direct radiation
+    - (0 - 1)
+    - alnip
+    - '17'
+    - x
+    - no mean
+  - - 4
+    - Near IR albedo for diffuse radiation
+    - (0 - 1)
+    - alnid
+    - '18'
+    - x
+    - no mean
+  - - 5
+    - Magnitude of turbulent surface stress
+    - N m**-2 s
+    - magss
+    - '48'
+    - ''
+    - x
+  - - 6
+    - Mean magnitude of turbulent surface stress
+    - N m**-2
+    - mmtss
+    - '235025'
+    - ''
+    - x
+  - - 7
+    - 10 metre wind gust since previous post-processing
+    - m s**-1
+    - 10fg
+    - '49'
+    - ''
+    - no mean
+  - - 8
+    - Maximum temperature at 2 metres since previous post-processing
+    - K
+    - mx2t
+    - '201'
+    - ''
+    - no mean
+  - - 9
+    - Minimum temperature at 2 metres since previous post-processing
+    - K
+    - mn2t
+    - '202'
+    - ''
+    - no mean
+  - - 10
+    - 10 metre wind speed
+    - m s**-1
+    - 10si
+    - '207'
+    - x
+    - x
+  - - 11
+    - Maximum total precipitation rate since previous post-processing
+    - kg m**-2 s**-1
+    - mxtpr
+    - '228226'
+    - ''
+    - no mean
+  - - 12
+    - Minimum total precipitation rate since previous post-processing
+    - kg m**-2 s**-1
+    - mntpr
+    - '228227'
+    - ''
+    - no mean
+  - - 13
+    - Altimeter wave height
+    - m
+    - awh
+    - '140246'
+    - no mean
+    - ''
+  - - 14
+    - Altimeter corrected wave height
+    - m
+    - acwh
+    - '140247'
+    - no mean
+    - ''
+  - - 15
+    - Altimeter range relative correction
+    - '~'
+    - arrc
+    - '140248'
+    - no mean
+    - ''
+  - - 16
+    - 2D wave spectra (single)
+    - m**2 s radian**-1
+    - 2dfd
+    - '140251'
+    - no mean
+    - ''
+Table 9:
+  caption: 'Table 9: stream=oper/enda/mnth/moda/edmm/edmo, levtype=pl: pressure level
+    parameters: instantaneous'
+  header_row:
+  - count
+  - name
+  - units
+  - shortName
+  - paramId
+  - an
+  - fc
+  rows:
+  - - 1
+    - Potential vorticity
+    - K m**2 kg**-1 s**-1
+    - pv
+    - '60'
+    - x
+    - x
+  - - 2
+    - Specific rain water content
+    - kg kg**-1
+    - crwc
+    - '75'
+    - x
+    - x
+  - - 3
+    - Specific snow water content
+    - kg kg**-1
+    - cswc
+    - '76'
+    - x
+    - x
+  - - 4
+    - Geopotential
+    - m**2 s**-2
+    - z
+    - '129'
+    - x
+    - x
+  - - 5
+    - Temperature
+    - K
+    - t
+    - '130'
+    - x
+    - x
+  - - 6
+    - U component of wind
+    - m s**-1
+    - u
+    - '131'
+    - x
+    - x
+  - - 7
+    - V component of wind
+    - m s**-1
+    - v
+    - '132'
+    - x
+    - x
+  - - 8
+    - Specific humidity
+    - kg kg**-1
+    - q
+    - '133'
+    - x
+    - x
+  - - 9
+    - Vertical velocity
+    - Pa s**-1
+    - w
+    - '135'
+    - x
+    - x
+  - - 10
+    - Vorticity (relative)
+    - s**-1
+    - vo
+    - '138'
+    - x
+    - x
+  - - 11
+    - Divergence
+    - s**-1
+    - d
+    - '155'
+    - x
+    - x
+  - - 12
+    - Relative humidity
+    - '%'
+    - r
+    - '157'
+    - x
+    - x
+  - - 13
+    - Ozone mass mixing ratio
+    - kg kg**-1
+    - o3
+    - '203'
+    - x
+    - x
+  - - 14
+    - Specific cloud liquid water content
+    - kg kg**-1
+    - clwc
+    - '246'
+    - x
+    - x
+  - - 15
+    - Specific cloud ice water content
+    - kg kg**-1
+    - ciwc
+    - '247'
+    - x
+    - x
+  - - 16
+    - Fraction of cloud cover
+    - (0 - 1)
+    - cc
+    - '248'
+    - x
+    - x
+
