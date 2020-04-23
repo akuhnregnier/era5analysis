@@ -133,3 +133,12 @@ config.yaml
 
 # Ignore joblib cache directories.
 joblib/
+
+# Package version.
+_version.py
+
+# Pre-commit configuration file.
+.pre-commit-config.yaml
+
+# Git attributes.
+.gitattributes
