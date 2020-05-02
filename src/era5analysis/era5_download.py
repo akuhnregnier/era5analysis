@@ -1,8 +1,5 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Tools for downloading ERA5 data using the CDS API.
-
-"""
+"""Tools for downloading ERA5 data using the CDS API."""
 import calendar
 import json
 import multiprocessing
@@ -26,9 +23,6 @@ from .processing_workers import *
 
 __all__ = [
     "ThreadList",
-    "cape_precipitation",
-    "download_daily_precipitation",
-    "download_monthly_precipitation",
     "format_request",
     "format_variable",
     "retrieval_processing",
@@ -928,81 +922,3 @@ def retrieval_processing(
     processing_worker.terminate()
     processing_worker.join(2)
     processing_worker.close()
-
-
-def monthly_averaging_example():
-    requests = retrieve(
-        variable=["2t", "10u", "10v"],
-        start=PartialDateTime(1990, 1, 1),
-        end=PartialDateTime(2019, 1, 1),
-    )
-    retrieval_processing(
-        requests,
-        n_threads=12,
-        delete_processed=True,
-        overwrite=False,
-        soft_filesize_limit=3,
-    )
-
-
-def cape_precipitation():
-    requests = retrieve(
-        variable=["cape", "tp"],
-        start=PartialDateTime(1990, 1, 1),
-        end=PartialDateTime(2019, 1, 1),
-    )
-    retrieval_processing(
-        requests,
-        processing_class=CAPEPrecipWorker,
-        n_threads=24,
-        delete_processed=True,
-        overwrite=False,
-        soft_filesize_limit=150,
-    )
-
-
-def download_monthly_precipitation():
-    retrieve(
-        variable="tp",
-        start=PartialDateTime(1990, 1, 1),
-        end=PartialDateTime(2019, 1, 1),
-        target_dir=os.path.join(DATA_DIR, "ERA5", "tp"),
-        monthly_mean=True,
-        download=True,
-        merge=True,
-    )
-    # Not needed with `download=True`.
-    # retrieval_processing(
-    #     requests,
-    #     processing_class=NullWorker,
-    #     n_threads=12,
-    #     delete_processed=False,
-    #     overwrite=False,
-    #     soft_filesize_limit=10,
-    # )
-
-
-def download_daily_precipitation():
-    requests = retrieve(
-        variable="tp",
-        start=PartialDateTime(1990, 1, 1),
-        end=PartialDateTime(2019, 1, 1),
-        target_dir=os.path.join(DATA_DIR, "ERA5", "tp_daily"),
-        monthly_mean=False,
-        download=False,
-        merge=False,
-    )
-
-    retrieval_processing(
-        requests,
-        processing_class=DailyAveragingWorker,
-        n_threads=24,
-        delete_processed=True,
-        overwrite=False,
-        soft_filesize_limit=250,
-    )
-
-
-if __name__ == "__main__":
-    enable_logging()
-    cape_precipitation()

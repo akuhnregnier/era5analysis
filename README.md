@@ -50,8 +50,4 @@ The `target_dir` argument of the `retrieve()` function takes precedence over def
 
 ## Usage
 
-For examples, please see the following functions in [era5analysis/era5_download.py](era5analysis/era5_download.py):
- - monthly_averaging_example()
- - cape_precipitation()
- - download_monthly_precipitation()
- - download_daily_precipitation()
+For examples, please see [examples/examples.py](examples/examples.py).
