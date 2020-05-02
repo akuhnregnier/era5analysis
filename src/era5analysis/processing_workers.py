@@ -5,7 +5,7 @@ import multiprocessing
 import os
 import sys
 import warnings
-from abc import ABC, abstractmethod
+from abc import ABCMeta, abstractmethod
 from datetime import datetime
 from multiprocessing import Process
 
@@ -18,15 +18,7 @@ from iris.util import monotonic
 from .era5_tables import get_short_to_long
 from .logging_config import logger
 
-__all__ = (
-    "Worker",
-    "AveragingWorker",
-    "CAPEPrecipWorker",
-    "DailyAveragingWorker",
-    "NullWorker",
-    "MonthlyMeanDailyMaxWorker",
-    "MonthlyMeanMinMaxWorker",
-)
+__all__ = ("Worker",)
 
 
 short_to_long = get_short_to_long()
@@ -48,7 +40,33 @@ def get_datetime_range(request_dict):
     return datetime_range
 
 
-class Worker(Process, ABC):
+class RegisterWorkers(ABCMeta):
+    """Workers are registered into a central list to keep track of them.
+
+    If any subclass (dataset) is used as another class's superclass, it is removed
+    from the registry in favour of its subclasses.
+
+    """
+
+    workers = None
+
+    def __init__(cls, name, bases, namespace):
+        super().__init__(name, bases, namespace)
+        if cls.workers is None:
+            cls.workers = set()
+        cls.workers.add(cls)
+        cls.workers -= set(bases)
+
+    def __iter__(cls):
+        return iter(cls.workers)
+
+    def __str__(cls):
+        if cls in cls.workers:
+            return cls.__name__
+        return f"{cls.__name__}: {', '.join(map(str, cls))}"
+
+
+class Worker(Process, metaclass=RegisterWorkers):
     """Abstract base class to subclass for use as a processing_worker in
     `retrieval_processing."""
 
@@ -672,3 +690,7 @@ class MonthlyMeanMinMaxWorker(Worker):
 
             new_cubes.extend([mean_cube, min_cube, max_cube])
         return new_cubes
+
+
+# Automatically export all Worker subclass leaves defining individual datasets.
+__all__ = list(set(__all__).union(set(map(str, Worker))))
