@@ -12,7 +12,6 @@ from multiprocessing import Process
 import iris
 import iris.coord_categorisation
 import numpy as np
-from dateutil.relativedelta import relativedelta
 from iris.util import monotonic
 
 from .era5_tables import get_short_to_long
@@ -22,6 +21,30 @@ __all__ = ("Worker",)
 
 
 short_to_long = get_short_to_long()
+
+
+def assert_single_month(cube):
+    """Assert that only a single month's data is present."""
+    months = {
+        cube.coord("time").cell(i).point.month
+        for i in range(len(cube.coord("time").points))
+    }
+    years = {
+        cube.coord("time").cell(i).point.year
+        for i in range(len(cube.coord("time").points))
+    }
+    assert len(months) == len(years) == 1, (
+        f"'{cube.name()}' cube should only contain data for one month in "
+        f"one year, but got years '{years}' and months '{months}'."
+    )
+
+
+def ensure_datetime(datetime_obj):
+    """If possible/needed, return a real datetime."""
+    try:
+        return datetime_obj._to_real_datetime()
+    except AttributeError:
+        return datetime_obj
 
 
 def get_datetime_range(request_dict):
@@ -225,15 +248,20 @@ class Worker(Process, metaclass=RegisterWorkers):
                     cube.coord("time").cell(-1).bound[-1],
                 )
             else:
-                cube_bounds = (
-                    min(
-                        cube.coord("time").cell(i)
-                        for i in range(len(cube.coord("time").points))
-                    ).point,
-                    max(
-                        cube.coord("time").cell(i)
-                        for i in range(len(cube.coord("time").points))
-                    ).point,
+                cube_bounds = tuple(
+                    map(
+                        ensure_datetime,
+                        (
+                            min(
+                                cube.coord("time").cell(i).point
+                                for i in range(len(cube.coord("time").points))
+                            ),
+                            max(
+                                cube.coord("time").cell(i).point
+                                for i in range(len(cube.coord("time").points))
+                            ),
+                        ),
+                    )
                 )
 
             if cube_bounds != datetime_range:
@@ -484,18 +512,7 @@ class CAPEPrecipWorker(Worker):
         assert len(cubes) == 2, "Expecting 2 cubes: CAPE and Precipitation."
 
         for cube in cubes:
-            months = {
-                cube.coord("time").cell(i).point.month
-                for i in range(len(cube.coord("time").points))
-            }
-            years = {
-                cube.coord("time").cell(i).point.year
-                for i in range(len(cube.coord("time").points))
-            }
-            assert len(months) == len(years) == 1, (
-                f"'{cube.name()}' cube should only contain data for one month in "
-                f"one year, but got years '{years}' and months '{months}'."
-            )
+            assert_single_month(cube)
 
         # Check that CAPE and Precipitation are both present.
         precip_names = {"Total precipitation", "tp"}
@@ -570,11 +587,7 @@ class MonthlyMeanDailyMaxWorker(Worker):
         """
         new_cubes = []
         for cube in cubes:
-            assert (
-                cube.coord("time").cell(-1).point - relativedelta(months=1)
-            ) <= cube.coord("time").cell(0).point, (
-                "Only single months should be processed at a time.",
-            )
+            assert_single_month(cube)
 
             maxima_arrs = []
             data = cube.data
@@ -663,11 +676,7 @@ class MonthlyMeanMinMaxWorker(Worker):
         """
         new_cubes = iris.cube.CubeList([])
         for cube in cubes:
-            assert (
-                cube.coord("time").cell(-1).point - relativedelta(months=1)
-            ) <= cube.coord("time").cell(0).point, (
-                "Only single months should be processed at a time.",
-            )
+            assert_single_month(cube)
 
             with warnings.catch_warnings():
                 warnings.filterwarnings(
@@ -689,6 +698,93 @@ class MonthlyMeanMinMaxWorker(Worker):
             )
 
             new_cubes.extend([mean_cube, min_cube, max_cube])
+        return new_cubes
+
+
+class MonthlyMeanMinMaxDTRWorker(Worker):
+    """Compute the means, minima, and maxima for each month.
+
+    Filenames to process are passed in via a pipe.
+
+    """
+
+    @staticmethod
+    def var_name(name):
+        """Get the new var names from the old name."""
+        prefixes = ("mean_", "min_", "max_", "dtr_")
+        if name is not None:
+            return [prefix + name for prefix in prefixes]
+        else:
+            return [None] * len(prefixes)
+
+    @staticmethod
+    def long_name(name):
+        """Get the new long names from the old name."""
+        prefixes = ("Mean ", "Min ", "Max ", "DTR ")
+        if name is not None:
+            return [prefix + name for prefix in prefixes]
+        else:
+            return [None] * len(prefixes)
+
+    @staticmethod
+    def output_filename(input_filename):
+        """Construct the output filename from the input filename."""
+        return input_filename.split(".nc")[0] + "_monthly_mean_min_max_dtr.nc"
+
+    @classmethod
+    def process_cubes(cls, cubes):
+        """Compute the monthly mean of daily properties of the input cubes.
+
+        Args:
+            cubes (iris.cube.CubeList): List of cubes to process.
+
+        Returns:
+            iris.cube.CubeList: Processed cubes.
+
+        """
+        new_cubes = iris.cube.CubeList([])
+        for cube in cubes:
+            assert_single_month(cube)
+
+            with warnings.catch_warnings():
+                warnings.filterwarnings(
+                    "ignore",
+                    message=(
+                        "Collapsing a non-contiguous coordinate. Metadata may not "
+                        "be fully descriptive for 'time'."
+                    ),
+                )
+                mean_cube = cube.collapsed("time", iris.analysis.MEAN)
+                min_cube = cube.collapsed("time", iris.analysis.MIN)
+                max_cube = cube.collapsed("time", iris.analysis.MAX)
+
+                iris.coord_categorisation.add_year(cube, "time")
+                iris.coord_categorisation.add_day_of_year(cube, "time")
+
+                daily_maxima = cube.aggregated_by(
+                    ("day_of_year", "year"), iris.analysis.MAX
+                )
+                daily_minima = cube.aggregated_by(
+                    ("day_of_year", "year"), iris.analysis.MIN
+                )
+                dtr_cube = (daily_maxima - daily_minima).collapsed(
+                    "time", iris.analysis.MEAN
+                )
+
+            (
+                mean_cube.long_name,
+                min_cube.long_name,
+                max_cube.long_name,
+                dtr_cube.long_name,
+            ) = cls.long_name(cube.long_name)
+            (
+                mean_cube.var_name,
+                min_cube.var_name,
+                max_cube.var_name,
+                dtr_cube.var_name,
+            ) = cls.var_name(cube.var_name)
+
+            new_cubes.extend([mean_cube, min_cube, max_cube, dtr_cube])
         return new_cubes
 
 
