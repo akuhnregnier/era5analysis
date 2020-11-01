@@ -1,0 +1,10 @@
+*.ipynb filter=nbstripout
+
+*.ipynb diff=ipynb
+
+/.gitattributes                 export-ignore
+/.gitignore                     export-ignore
+/.travis.yml                    export-ignore
+/.pre-commit-config.yaml        export-ignore
+/.zenodo.json                   export-ignore
+/tests                          export-ignore
